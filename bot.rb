@@ -86,7 +86,7 @@ class NewsBot < SlackRubyBot::Bot
   end
 
   def self.get_articles
-    HTTParty.get("https://www.googleapis.com/customsearch/v1?q=#{@search}&cx=#{ENV['GOOGLE_CX']}&key=#{ENV['GOOGLE_API_KEY']}")['items']
+    HTTParty.get(Uri.encode("https://www.googleapis.com/customsearch/v1?q=#{@search}&cx=#{ENV['GOOGLE_CX']}&key=#{ENV['GOOGLE_API_KEY']}"))['items']
   end
 
   def self.get_related_product
